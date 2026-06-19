@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campro A3 Pro Híbrida – Licença 0981</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F8F8;
+      --black: #111111;
+      --white: #ffffff;
+      --gray-mid: #e0e0e0;
+      --gray-text: #666666;
+      --font: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* HEADER */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-mid);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img { height: 38px; width: auto; }
+
+    .header-contact { font-size: 13px; color: var(--gray-text); }
+    .header-contact span { font-weight: 700; color: var(--black); }
+
+    /* HERO */
+    .hero { background: var(--bg); }
+    .hero-image { width: 100%; background: var(--bg); }
+    .hero-image img { width: 100%; height: auto; display: block; }
+
+    .hero-text {
+      text-align: center;
+      padding: 48px 24px 20px;
+    }
+
+    .hero-text .version-tag {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: var(--gray-text);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* RESOURCES */
+    .resources {
+      flex: 1;
+      padding: 48px 24px 80px;
+    }
+
+    .resources-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 12px;
+      padding: 40px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .resource-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .card-icon svg { width: 32px; height: 32px; }
+
+    .resource-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+
+    .resource-card p {
+      font-size: .85rem;
+      color: var(--gray-text);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: var(--black);
+      color: var(--white);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+      transition: opacity .2s;
+      white-space: nowrap;
+    }
+
+    .card-btn:hover { opacity: .82; }
+    .card-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: #aaaaaa;
+      text-align: center;
+      padding: 28px 24px;
+    }
+
+    .footer-logo {
+      height: 30px;
+      width: auto;
+      margin: 0 auto 14px;
+      opacity: .75;
+    }
+
+    footer p { font-size: .78rem; color: #666; }
+    footer a { color: #aaa; font-weight: 600; }
+    footer a:hover { color: var(--white); }
+
+    /* VIDEO */
+    .video-section {
+      background: var(--black);
+      padding: 72px 24px;
+    }
+
+    .video-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .video-inner h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .video-inner > p {
+      font-size: .95rem;
+      color: #aaaaaa;
+      margin-bottom: 36px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* APLICAÇÕES */
+    .aplicacoes {
+      background: var(--bg);
+      padding: 72px 24px;
+    }
+
+    .aplicacoes-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .aplicacoes-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .aplicacoes-header h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 12px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .aplicacoes-header p {
+      font-size: .95rem;
+      color: var(--gray-text);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .aplicacoes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .aplic-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .aplic-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+      transform: translateY(-4px);
+    }
+
+    .aplic-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .aplic-card-body {
+      padding: 24px 22px 28px;
+    }
+
+    .aplic-card-body h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .aplic-card-body p {
+      font-size: .83rem;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    /* ── ANIMAÇÕES ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    header { animation: fadeDown .5s ease both; }
+
+    .hero-image { animation: fadeIn .9s ease both; }
+
+    .hero-text { animation: fadeUp .7s .2s ease both; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .65s cubic-bezier(.22,1,.36,1),
+                  transform .65s cubic-bezier(.22,1,.36,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-d1 { transition-delay: .08s; }
+    .reveal-d2 { transition-delay: .18s; }
+    .reveal-d3 { transition-delay: .28s; }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(.95);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1),
+                  transform .7s cubic-bezier(.22,1,.36,1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (max-width: 700px) {
+      .resources-inner { grid-template-columns: 1fr; max-width: 380px; }
+      .aplicacoes-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .hero-text h1 { font-size: 1.5rem; }
+      header { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="./index.html">
+      <img src="https://bannerjet.com.br/wp-content/uploads/2025/07/Bannerjet-Group-logo-1-03-1024x227.png" alt="Bannerjet Group" />
+    </a>
+    <div class="header-contact">Suporte: <span>(11) 97096-2841</span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-image">
+    <img src="./hero.png" alt="Campro A3 Pro Híbrida" />
+  </div>
+  <div class="hero-text">
+    <span class="version-tag">Licença 0981</span>
+    <h1>Campro A3 Pro Híbrida</h1>
+    <p>Baixe o software e acesse os manuais correspondentes à sua licença.</p>
+  </div>
+</section>
+
+<section class="resources">
+  <div class="resources-inner">
+
+    <div class="resource-card reveal reveal-d1">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 2h12v2H6v-2z"/>
+        </svg>
+      </div>
+      <h3>Software CâmeraCut</h3>
+      <p>Programa oficial de controle da plotter. Instale no seu computador para começar a operar o equipamento.</p>
+      <a class="card-btn" href="https://drive.google.com/file/d/1zVWarLl6D5Q3CaXY-ZnJ_Nj5uY9m8fGE/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 2h12v2H6v-2z"/></svg>
+        Baixar Programa
+      </a>
+    </div>
+
+    <div class="resource-card reveal reveal-d2">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 8v-2h8v2H8zm0-4v-2h8v2H8z"/>
+        </svg>
+      </div>
+      <h3>Manual de Utilização</h3>
+      <p>Guia completo de operação do software CâmeraCut: configurações, fluxo de trabalho e dicas de uso.</p>
+      <a class="card-btn" href="https://drive.google.com/file/d/1-C-JPVzTt8dwkXJQKu69bK1iX-iX_jGe/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 8v-2h8v2H8zm0-4v-2h8v2H8z"/></svg>
+        Acessar Manual
+      </a>
+    </div>
+
+    <div class="resource-card reveal reveal-d3">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14z"/>
+          <path d="M6 13h5v4H6zm0-6h12v4H6z"/>
+        </svg>
+      </div>
+      <h3>Manual do Equipamento</h3>
+      <p>Documentação técnica da máquina: instalação, manutenção, especificações e solução de problemas.</p>
+      <a class="card-btn" href="https://drive.google.com/file/d/10bmQzoW2lJvC7x8P7D_xU_Vx8mp5xNOS/view?usp=sharing" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 8v-2h8v2H8zm0-4v-2h8v2H8z"/></svg>
+        Acessar Manual
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- VÍDEO -->
+<section class="video-section">
+  <div class="video-inner reveal">
+    <h2>Veja o equipamento em ação</h2>
+    <p>Assista à apresentação completa da Campro A3 Pro Híbrida</p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/UKKqN8rScZc?start=137"
+        title="Apresentação Campro A3 Pro Híbrida"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- APLICAÇÕES -->
+<section class="aplicacoes">
+  <div class="aplicacoes-inner">
+    <div class="aplicacoes-header reveal">
+      <h2>Aplicações da A3 Pro Híbrida que criam itens vendáveis com acabamento superior</h2>
+      <p>Itens que a gráfica produz em A4, A3 e Super A3 com plotter de recorte, meio corte e fluxo contínuo</p>
+    </div>
+    <div class="aplicacoes-grid">
+
+      <div class="aplic-card reveal reveal-d1">
+        <img src="https://bannerjet.com.br/wp-content/uploads/2026/05/x-A3-PRO-APLICACAO-1.webp" alt="Rótulos adesivos em folha" />
+        <div class="aplic-card-body">
+          <h3>Rótulos adesivos em folha com meio corte preciso com a plotter de recorte, para destacar marcas no balcão.</h3>
+          <p>Você entrega rótulos com destaque fácil, padrão profissional e repetição consistente, mesmo em lotes maiores.</p>
+        </div>
+      </div>
+
+      <div class="aplic-card reveal reveal-d2">
+        <img src="https://bannerjet.com.br/wp-content/uploads/2026/05/x-A3-PRO-APLICACAO-2.webp" alt="Adesivos recortados em vinil" />
+        <div class="aplic-card-body">
+          <h3>Adesivos recortados em vinil para brindes, vitrines e campanhas, com contorno fiel ao layout e pronto para colar.</h3>
+          <p>Recorte formas complexas com precisão, acelerando produção de adesivos que impressionam e vendem mais.</p>
+        </div>
+      </div>
+
+      <div class="aplic-card reveal reveal-d3">
+        <img src="https://bannerjet.com.br/wp-content/uploads/2026/06/A3-PRO-HIBRIDA-APLICACAO-1.webp" alt="Caixas e embalagens em papel cartão" />
+        <div class="aplic-card-body">
+          <h3>Caixas e embalagens pequenas em papel cartão com dobras perfeitas pelo vinco dedicado, além de tags, cartões e materiais promocionais com corte sob medida.</h3>
+          <p>Finalize peças promocionais com acabamentos perfeitos, deixando o material pronto para uso e com alto padrão.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-logo" src="https://bannerjet.com.br/wp-content/uploads/2025/09/Bannerjet-Group-logo-1-01-1024x227.png" alt="Bannerjet Group" />
+  <p>© 2025 Bannerjet Group &nbsp;·&nbsp; <a href="https://api.whatsapp.com/send/?phone=5511970962841" target="_blank">Suporte via WhatsApp</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
