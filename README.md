@@ -10,6 +10,10 @@ Página de ativação e download para os equipamentos **Campro A3 Pro Híbrida**
 |---|---|
 | ![Página da licença — Campro A3 Pro Híbrida](docs/01-hero.png) | ![Cards de download e vídeo do equipamento](docs/02-recursos.png) |
 
+| Outra licença (0981) | Galeria de aplicações |
+|---|---|
+| ![Página da licença 0981](docs/03-licenca-0981.png) | ![Galeria de aplicações reais do equipamento](docs/04-aplicacoes.png) |
+
 ## Sobre o projeto
 
 Cada Campro A3 Pro Híbrida vendida pela Bannerjet Group sai de fábrica com um número de licença (ex.: `1981`, `0981`). Esse número dá acesso a uma página dedicada — `/#/1981`, `/#/0981` — com o link de download do software de corte daquela licença, o manual de utilização, o manual do equipamento e um vídeo demonstrando o produto em uso. É, na prática, o "portal do cliente" de pós-venda do equipamento.
